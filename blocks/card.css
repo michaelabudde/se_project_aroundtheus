@@ -1,12 +1,4 @@
-.card__list{
-    display: grid;
-    justify-content: center;
-    grid-template-columns: repeat(auto-fit, 282px);
-    grid-gap: 20px 18px;
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-}
+
 
 .card{
     display: flex;
@@ -43,4 +35,5 @@
     background: transparent url(../images/like-inactive.svg) center no-repeat;
     width: 21px;
     height: 18px;
+    border: white;
 }
