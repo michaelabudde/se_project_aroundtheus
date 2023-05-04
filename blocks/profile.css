@@ -56,3 +56,22 @@
     background-position: center;
     margin-right: 24px;
 }
+
+@media screen and (max-width:800px){
+    .profile{
+        flex-direction: column;
+    }
+    .profile__image{
+        margin-right: 0px;
+    }
+    .profile__add-button{
+        margin: 0;
+    }
+    .profile__description{
+        margin-bottom: 36px;
+        font-size: 14px;
+    }
+    .profile__title{
+
+    }
+}
