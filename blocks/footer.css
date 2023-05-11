@@ -1,4 +1,17 @@
-.footer{
-    padding-bottom: 60px;
-    padding-top: 67px;
+.footer {
+  padding-bottom: 60px;
+  padding-top: 67px;
+}
+.footer__text {
+  color: #545454;
+  font: Inter, arial, sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+}
+
+@media screen and (max-width: 480px) {
+  .footer {
+    padding-top: 48px;
+    padding-bottom: 36px;
+  }
 }

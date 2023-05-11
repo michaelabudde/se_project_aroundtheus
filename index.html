@@ -1,79 +1,114 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
-    <meta name="description" content="Around the US Homepage"/>
-    <meta name="author" content="Michaela Budde"/>
-    <meta name="keywords" content="Around the US, Images, Travel"/>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="description" content="Around the US Homepage" />
+    <meta name="author" content="Michaela Budde" />
+    <meta name="keywords" content="Around the US, Images, Travel" />
     <title>Around The U.S.</title>
-    <link href="./pages/index.css" rel="stylesheet"/>
-</head>
-<body class="page">
+    <link href="./pages/index.css" rel="stylesheet" />
+  </head>
+  <body class="page">
     <div class="page__content">
-        <header class="header page__section">
-            <div class="header__image">
-            <img src="./images/around-logo.svg" alt="Around the U.S."/>
+      <header class="header page__section">
+        <img
+          src="./images/around-logo.svg"
+          alt="Around the U.S."
+          class="header__image"
+        />
+      </header>
+      <main class="content page__section">
+        <section class="profile">
+          <img
+            src="../images/jacques-cousteau.png"
+            alt="Avatar"
+            class="profile__image"
+          />
+          <div class="profile__container">
+            <div class="profile__info">
+              <h1 class="profile__title">Jacques Cousteau</h1>
+              <button type="button" class="profile__edit-button"></button>
             </div>
-        </header>
-        <main class="content page__section">
-            <section class="profile">  
-                <img src="./images/jacques-cousteau.png" alt="Avatar" class="profile__image"/>
-                <div class="profile__container">
-                  <div class="profile__info">
-                        <h1 class="profile__title">Jacques Cousteau</h1>
-                        <button class="profile__edit-button"></button>
-                  </div>
-                <p class="profile__description">Explorer</p>
-                </div>
-                <button class="profile__add-button"></button>
-            </section>
-            <section class="cards">
-            <ul class="cards__list">
-                <li class="card"> 
-                    <img src="./images/yosemite-valley.png" alt="Yosemite Valley" class="card__image">
-                    <div class="card__description"> <h2 class="card__title"> Yosemite Valley</h2>
-                    <button class="card__like-button"></button>
-                    </div>
-                </li>
-                <li class="card"> 
-                    <img src="./images/lake-louise.png" alt="Lake Louise" class="card__image">
-                    <div class="card__description"> <h2 class="card__title"> Lake Louise</h2>
-                    <button class="card__like-button"></button>
-                    </div>
-                </li>
-                <li class="card"> 
-                    <img src="./images/bald-mountains.png" alt="Bald Mountains" class="card__image">
-                    <div class="card__description"> <h2 class="card__title"> Bald Mountains</h2>
-                    <button class="card__like-button"></button>
-                    </div>
-                </li>
-                <li class="card"> 
-                    <img src="./images/latemar.png" alt="Latemar" class="card__image">
-                    <div class="card__description"> <h2 class="card__title"> Latemar</h2>
-                    <button class="card__like-button"></button>
-                    </div>
-                </li>
-                <li class="card"> 
-                    <img src="./images/vanoise-national-park.png" alt="Vanoise National Park" class="card__image">
-                    <div class="card__description"> <h2 class="card__title"> Vanoise National Park</h2>
-                    <button class="card__like-button"></button>
-                    </div>
-                </li>
-                <li class="card"> 
-                    <img src="./images/lago-di-braies.png" alt="Lago di Braies" class="card__image">
-                    <div class="card__description"> <h2 class="card__title"> Lago di Braies</h2>
-                    <button class="card__like-button"></button>
-                    </div>
-                </li>
-            </ul>
-            </section>
-        </main>
-        
+            <p class="profile__description">Explorer</p>
+          </div>
+          <button type="button" class="profile__add-button"></button>
+        </section>
+        <section class="cards">
+          <ul class="cards__list">
+            <li class="card">
+              <img
+                src="./images/yosemite-valley.png"
+                alt="Yosemite Valley"
+                class="card__image"
+              />
+              <div class="card__description">
+                <h2 class="card__title">Yosemite Valley</h2>
+                <button type="button" class="card__like-button"></button>
+              </div>
+            </li>
+            <li class="card">
+              <img
+                src="./images/lake-louise.png"
+                alt="Lake Louise"
+                class="card__image"
+              />
+              <div class="card__description">
+                <h2 class="card__title">Lake Louise</h2>
+                <button type="button" class="card__like-button"></button>
+              </div>
+            </li>
+            <li class="card">
+              <img
+                src="./images/bald-mountains.png"
+                alt="Bald Mountains"
+                class="card__image"
+              />
+              <div class="card__description">
+                <h2 class="card__title">Bald Mountains</h2>
+                <button type="button" class="card__like-button"></button>
+              </div>
+            </li>
+            <li class="card">
+              <img
+                src="./images/latemar.png"
+                alt="Latemar"
+                class="card__image"
+              />
+              <div class="card__description">
+                <h2 class="card__title">Latemar</h2>
+                <button type="button" class="card__like-button"></button>
+              </div>
+            </li>
+            <li class="card">
+              <img
+                src="./images/vanoise-national-park.png"
+                alt="Vanoise National Park"
+                class="card__image"
+              />
+              <div class="card__description">
+                <h2 class="card__title">Vanoise National Park</h2>
+                <button type="button" class="card__like-button"></button>
+              </div>
+            </li>
+            <li class="card">
+              <img
+                src="./images/lago-di-braies.png"
+                alt="Lago di Braies"
+                class="card__image"
+              />
+              <div class="card__description">
+                <h2 class="card__title">Lago di Braies</h2>
+                <button type="button" class="card__like-button"></button>
+              </div>
+            </li>
+          </ul>
+        </section>
+      </main>
     </div>
     <footer class="footer page__section">
-        <img src="./images/footer-text.png" alt="footer-text" class="footer__text">
+      <p class="footer__text">© 2023 Around the U.S.</p>
     </footer>
-</body>
+  </body>
 </html>
