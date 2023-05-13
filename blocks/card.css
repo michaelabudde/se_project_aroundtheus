@@ -42,7 +42,7 @@
   background: transparent url(../images/like-inactive.svg) center no-repeat;
   width: 21px;
   height: 18px;
-  border: #000000;
+  border: 0;
   margin-left: 2px;
   padding: 0;
 }
