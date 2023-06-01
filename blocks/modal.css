@@ -10,6 +10,7 @@
   align-items: center;
   justify-content: center;
   padding: 0 19px;
+  display: none;
 }
 .modal_opened {
   display: flex;
@@ -22,6 +23,7 @@
   flex-direction: column;
   width: 430px;
   height: 330px;
+  position: relative;
 }
 .modal__container-close {
   background-image: url("../images/close-icon.svg");
