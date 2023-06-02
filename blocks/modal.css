@@ -21,8 +21,9 @@
   border-radius: 10px;
   display: flex;
   flex-direction: column;
-  width: 430px;
-  height: 330px;
+  width: 358px;
+  height: 258px;
+  padding: 36px;
   position: relative;
 }
 .modal__container-close {
@@ -38,19 +39,20 @@
   border: none;
   cursor: pointer;
 }
-.modal__heading {
+
+.modal__container-form {
+  width: fit-content;
+}
+.modal__container-form-heading {
   font-family: "Inter";
   font-style: normal;
   font-weight: 900;
   font-size: 24px;
   line-height: 29px;
-  padding-bottom: 54px;
+  padding-bottom: 52px;
   margin: 0;
 }
-.modal__container-form {
-  padding: 36px;
-}
-.modal__container-title {
+.modal__container-form-title {
   font-family: "Inter";
   font-style: normal;
   font-weight: 400;
@@ -62,8 +64,12 @@
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   outline: none;
   margin-bottom: 30px;
+  padding-top: 0px;
+  padding-bottom: 8px;
+  padding-left: 0px;
+  padding-right: 0px;
 }
-.modal__container-description {
+.modal__container-form-description {
   font-family: "Inter";
   font-style: normal;
   font-weight: 400;
@@ -74,8 +80,12 @@
   border: none;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   outline: none;
+  padding-top: 0px;
+  padding-bottom: 8px;
+  padding-left: 0px;
+  padding-right: 0px;
 }
-.modal__container-button {
+.modal__container-form-button {
   font-family: "Inter";
   font-style: normal;
   font-weight: 400;
@@ -92,4 +102,37 @@
   align-items: center;
   justify-content: center;
   margin-top: 48px;
+  padding: 0px;
+}
+
+@media screen and (max-width: 660px) {
+  .modal__container {
+    width: 238px;
+    height: 272px;
+    padding: 22px 25px;
+  }
+  .modal__container-form {
+    width: fit-content;
+  }
+  .modal__container-form-heading {
+    font-size: 18px;
+    line-height: 22px;
+  }
+  .modal__container-form-title {
+    width: 238px;
+  }
+  .modal__container-form-description {
+    width: 238px;
+  }
+  .modal__container-form-button {
+    width: 238px;
+    font-size: 14px;
+    line-height: 17px;
+  }
+  .modal__container-close {
+    top: -39px;
+    left: 256px;
+    width: 26px;
+    height: 26px;
+  }
 }
