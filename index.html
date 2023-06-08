@@ -47,7 +47,8 @@
     <footer class="footer page__section">
       <p class="footer__text">© 2023 Around the U.S.</p>
     </footer>
-    <div class="modal">
+    <!-- Edit Modal-->
+    <div class="modal" id="edit-modal">
       <div class="modal__container">
         <button class="modal__container-close"></button>
         <form class="modal__container-form">
@@ -63,6 +64,28 @@
             id="profile-description-input"
             class="modal__container-form-description"
             placeholder="Description"
+          />
+          <button class="modal__container-form-button">Save</button>
+        </form>
+      </div>
+    </div>
+    <!-- Add Card Modal-->
+    <div class="modal">
+      <div class="modal__container">
+        <button class="modal__container-close"></button>
+        <form class="modal__container-form">
+          <p class="modal__container-form-heading">New Place</p>
+          <input
+            type="text"
+            id="card-modal-input-title"
+            class="modal__container-form-title"
+            placeholder="Title"
+          />
+          <input
+            type="text"
+            id="card-modal-input-url"
+            class="modal__container-form-url"
+            placeholder="Image URL"
           />
           <button class="modal__container-form-button">Save</button>
         </form>
