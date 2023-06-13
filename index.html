@@ -91,12 +91,22 @@
         </form>
       </div>
     </div>
+    <!--Preview Card Image-->
+    <div class="modal" id="preview-image-modal">
+      <div class="modal__container-image">
+        <button class="modal__container-image-close"></button>
+        <img class="card__image" src="" alt="" />
+        <p class="modal__container-caption"></p>
+      </div>
+    </div>
+    <!--card template-->
     <template id="card-template">
       <li class="card">
         <img class="card__image" src="" alt="" />
         <div class="card__description">
           <h2 class="card__title"></h2>
           <button class="card__like-button" type="button"></button>
+          <button class="card__delete-button" type="button"></button>
         </div>
       </li>
     </template>
