@@ -34,7 +34,7 @@
   padding: 36px;
   position: relative;
 }
-.modal__container-close {
+.modal__close {
   background-image: url("../images/close-icon.svg");
   background-color: transparent;
   position: absolute;
@@ -132,7 +132,7 @@
   height: auto;
   padding: 1px;
 }
-.modal__container-image-close {
+.modal__close-container-image {
   background-image: url("../images/close-icon.svg");
   background-color: transparent;
   position: absolute;

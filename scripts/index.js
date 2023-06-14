@@ -43,27 +43,21 @@ const previewImageModal = document.querySelector("#preview-image-modal");
 
 //Buttons and other DOM Nodes
 const profileEditButton = document.querySelector("#profile-edit-button");
-const profileModalCloseButton = profileEditModal.querySelector(
-  ".modal__container-close"
-);
-const addCardModalCloseButton = addCardModal.querySelector(
-  ".modal__container-close"
-);
+const profileModalCloseButton = profileEditModal.querySelector(".modal__close");
+const addCardModalCloseButton = addCardModal.querySelector(".modal__close");
 const profileTitle = document.querySelector(".profile__title");
 const profileDescription = document.querySelector(".profile__description");
 const addNewCardButton = document.querySelector(".profile__add-button");
 const previewImageModalCloseButton = previewImageModal.querySelector(
-  ".modal__container-image-close"
+  ".modal__close-container-image"
 );
 const previewImage = previewImageModal.querySelector(".modal__container-image");
 const previewCaption = previewImageModal.querySelector(
   ".modal__container-caption"
 );
 //Form Data
-const profileTitleInput = document.querySelector("#profile-title-input");
-const profileDescriptionInput = document.querySelector(
-  "#profile-description-input"
-);
+const nameInput = document.querySelector("#profile-title-input");
+const jobInput = document.querySelector("#profile-description-input");
 const cardTitleInput = addCardModal.querySelector("#card-modal-input-title");
 const cardUrlInput = addCardModal.querySelector("#card-modal-input-url");
 /*const addCardForm = addCardModal.querySelector(".modal__container-form");
@@ -118,7 +112,6 @@ function getCardElement(cardData) {
 
 function handleProfileFormSubmit(evt) {
   evt.preventDefault();
-
   profileTitle.textContent = nameInput.value;
   profileDescription.textContent = jobInput.value;
   closeModal(profileEditModal);
@@ -130,6 +123,7 @@ function handleAddCardFormSubmit(evt) {
   const link = cardUrlInput.value;
   renderCard({ title, link }, cardsWrap);
   closeModal(addCardModal);
+  addCardFormElement.reset();
 }
 
 /* function openPreviewImageModal(evt) {
@@ -142,8 +136,8 @@ function handleAddCardFormSubmit(evt) {
 //Edit Event Listeners
 
 profileEditButton.addEventListener("click", () => {
-  profileTitleInput.value = profileTitle.textContent;
-  profileDescriptionInput.value = profileDescription.textContent;
+  nameInput.value = profileTitle.textContent;
+  jobInput.value = profileDescription.textContent;
   openModal(profileEditModal);
 });
 profileModalCloseButton.addEventListener("click", () =>
