@@ -130,7 +130,7 @@ function handleAddCardFormSubmit(evt) {
   const link = cardUrlInput.value;
   renderCard({ title, link }, cardsWrap);
   closeModal(addCardModal);
-  addCardFormElement.reset();
+  cardForm.reset();
 }
 
 //Edit Event Listeners
@@ -141,13 +141,13 @@ profileEditButton.addEventListener("click", () => {
   openModal(profileEditModal);
 });
 
-profileEditFormElement.addEventListener("submit", handleProfileFormSubmit);
+profileForm.addEventListener("submit", handleProfileFormSubmit);
 
 //Add Card Listeners
 addNewCardButton.addEventListener("click", () => openModal(addCardModal));
 addCardModalCloseButton.addEventListener("click", () =>
   closeModal(addCardModal)
 );
-addCardFormElement.addEventListener("submit", handleAddCardFormSubmit);
+cardForm.addEventListener("submit", handleAddCardFormSubmit);
 
 initialCards.forEach((cardData) => renderCard(cardData, cardsWrap));
