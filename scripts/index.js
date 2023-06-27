@@ -108,7 +108,9 @@ function getCardElement(cardData) {
   //call open modal with previewImageModal
 
   likeButton.addEventListener("click", () => {
-    likeButton.classList.toggle("card__like-button_active");
+    likeButton.classList
+      .toggle("card__like-button_active")
+      .content.querySelector(".card");
   });
 
   cardTitleEl.textContent = cardData.title;

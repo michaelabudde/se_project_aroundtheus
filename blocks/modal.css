@@ -130,6 +130,20 @@
 .modal__container-image {
   width: 100%;
 }
+/* .modal__input_type_error {
+
+} */
+
+.modal__error {
+  font-size: 12px;
+  line-height: 15px;
+  color: red;
+  position: absolute;
+  top: calc(100% + 5px);
+  left: 0;
+  transition: opacity 0.3s;
+  border-bottom: 1px solid red;
+}
 
 @media screen and (max-width: 660px) {
   .modal__container {
