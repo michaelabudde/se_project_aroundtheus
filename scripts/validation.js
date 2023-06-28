@@ -41,15 +41,13 @@ function enableButton(inputEls) {
   }
 }
 
-/* function toggleButtonState(inputEls, submitButton, { inactiveButtonClass }) {
-  if (hasInvalidInput(inputEls)) {
-    submitButton.classList.add(inactiveButtonClass);
-    submitButton.disabled = true;
+function toggleButtonState(inputEls, submitButton, { inactiveButtonClass }) {
+  if (hasInvalidInput) {
+    disableButton(inputEls);
     return;
   }
-  submitButton.classList.remove(inactiveButtonClass);
-  submitButton.disabled = false;
-} */
+  enableButton(inputEls);
+}
 
 function setEventListeners(formEl, options) {
   const { inputSelector } = options;
@@ -87,8 +85,8 @@ const options = {
   formSelector: ".modal__container-form",
   inputSelector: ".modal__container-form-input",
   submitButtonSelector: ".modal__container-form-button",
-  inactiveButtonClass: ".modal__button_disabled",
-  inputErrorClass: ".modal__input_type_error",
+  inactiveButtonClass: "modal__button_disabled",
+  inputErrorClass: "modal__input_type_error",
   errorClass: ".modal__error_visible",
 };
 enableValidation(options);
