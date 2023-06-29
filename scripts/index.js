@@ -79,25 +79,12 @@ closeButtons.forEach((button) => {
 //add event listener for overlay and esc button
 
 document.addEventListener("keydown", (e) => {
-  /*   console.log(e.key); */
   if (e.key === "Escape") {
     closeModal(profileEditModal);
     closeModal(addCardModalWindow);
     closeModal(previewModalWindow);
   }
-  //tried adding this code to prevent enter button causing submit
-  /*   if (e.key === 13) {
-    e.preventDefault();
-  } */
-  //need code to prevent submit with typing
 });
-
-/* function closeModalKeypress(evt) {
-  if (evt.key === "Escape") {
-    const activeModal = document.querySelector(".modal_opened");
-    closeModal(activeModal);
-  }
-} */
 
 profileEditModal.addEventListener("mousedown", (e) => {
   console.log(e.target);
