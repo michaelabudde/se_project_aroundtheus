@@ -74,8 +74,8 @@ const options = {
   formSelector: ".modal__container-form",
   inputSelector: ".modal__container-form-input",
   submitButtonSelector: ".modal__container-form-button",
-  inactiveButtonClass: "modal__button_disabled",
+  inactiveButtonClass: "modal__container-form-button_disabled",
   inputErrorClass: "modal__input_type_error",
-  errorClass: ".modal__error_visible",
+  errorClass: ".modal__error",
 };
 enableValidation(options);
