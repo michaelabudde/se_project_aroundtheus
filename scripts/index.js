@@ -76,7 +76,56 @@ closeButtons.forEach((button) => {
   // set the listener
   button.addEventListener("click", () => closeModal(modal));
 });
+//add event listener for overlay and esc button
 
+document.addEventListener("keydown", (e) => {
+  console.log(e.key);
+  if (e.key === "Escape") closeModal(profileEditModal);
+  closeModal(addCardModalWindow);
+  closeModal(previewModalWindow);
+  if (e.key === 13) {
+    e.preventDefault();
+  }
+});
+
+/* function closeModalKeypress(evt) {
+  if (evt.key === "Escape") {
+    const activeModal = document.querySelector(".modal_opened");
+    closeModal(activeModal);
+  }
+} */
+
+profileEditModal.addEventListener("mousedown", (e) => {
+  console.log(e.target);
+  if (
+    e.target.classList.contains("modal") ||
+    e.target.classList.contains("modal__close")
+  ) {
+    closeModal(profileEditModal);
+  }
+});
+
+const addCardModalWindow = document.querySelector("#add-card-modal");
+addCardModalWindow.addEventListener("mousedown", (e) => {
+  console.log(e.target);
+  if (
+    e.target.classList.contains("modal") ||
+    e.target.classList.contains("modal__close")
+  ) {
+    closeModal(addCardModalWindow);
+  }
+});
+
+const previewModalWindow = document.querySelector("#preview-image-modal");
+previewModalWindow.addEventListener("mousedown", (e) => {
+  console.log(e.target);
+  if (
+    e.target.classList.contains("modal") ||
+    e.target.classList.contains("modal__close")
+  ) {
+    closeModal(previewModalWindow);
+  }
+});
 //Form Data
 
 function renderCard(cardData, wrapper) {

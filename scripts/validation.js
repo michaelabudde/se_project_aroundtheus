@@ -23,9 +23,8 @@ function checkInputValidity(formEl, inputEl, options) {
 function hasInvalidInput(inputList) {
   return !inputList.every((inputEl) => inputEl.validity.valid);
 }
-
 //disable button
-function disableButton(inputEls) {
+function disableButton(inputEls, submitButton, inactiveButtonClass) {
   if (hasInvalidInput(inputEls)) {
     submitButton.classList.add(inactiveButtonClass);
     submitButton.disabled = true;
@@ -34,19 +33,19 @@ function disableButton(inputEls) {
 }
 
 //enable button
-function enableButton(inputEls) {
-  if (!hasInvalidInput(inputEls)) {
+function enableButton(inputEls, submitButton, inactiveButtonClass) {
+  if (!hasInvalidInput([...inputEls])) {
     submitButton.classList.remove(inactiveButtonClass);
     submitButton.disabled = false;
   }
 }
 
 function toggleButtonState(inputEls, submitButton, { inactiveButtonClass }) {
-  if (hasInvalidInput) {
-    disableButton(inputEls);
+  if (hasInvalidInput(inputEls)) {
+    disableButton(inputEls, submitButton, inactiveButtonClass);
     return;
   }
-  enableButton(inputEls);
+  enableButton(inputEls, submitButton, inactiveButtonClass);
 }
 
 function setEventListeners(formEl, options) {

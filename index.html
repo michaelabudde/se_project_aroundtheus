@@ -101,6 +101,9 @@
               id="card-modal-input-title"
               class="modal__container-form-input"
               placeholder="Title"
+              maxlength="30"
+              minlength="1"
+              required
             />
             <span
               class="modal__error_visible"
@@ -109,10 +112,11 @@
           </label>
           <label class="modal__label">
             <input
-              type="text"
+              type="url"
               id="card-modal-input-url"
               class="modal__container-form-input"
               placeholder="Image URL"
+              required
             />
             <span
               class="modal__error_visible"

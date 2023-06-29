@@ -133,14 +133,13 @@
 .modal__label {
   position: relative;
 }
-.modal__container-form {
-}
-.modal__input {
-}
-.modal__button {
-}
+
 .modal__button_disabled {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  background: #ffffff;
+  color: rgba(0, 0, 0, 0.2);
 }
+
 .modal__input_type_error {
   border-bottom: 1px solid #ff0000;
 }
@@ -149,9 +148,9 @@
   line-height: 15px;
   color: #ff0000;
   position: absolute;
-  top: calc(100% + 5px);
-  left: 0;
+  top: 30px;
   transition: opacity 0.3s;
+  width: 358px;
 }
 
 @media screen and (max-width: 660px) {
