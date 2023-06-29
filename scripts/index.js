@@ -52,6 +52,9 @@ const previewImage = previewImageModal.querySelector(".modal__container-image");
 const previewCaption = previewImageModal.querySelector(
   ".modal__container-caption"
 );
+const addCardSaveButton = cardForm.querySelector(
+  ".modal__container-form-button"
+);
 //Form Data
 const nameInput = document.querySelector("#profile-title-input");
 const jobInput = document.querySelector("#profile-description-input");
@@ -148,9 +151,7 @@ function getCardElement(cardData) {
   //call open modal with previewImageModal
 
   likeButton.addEventListener("click", () => {
-    likeButton.classList
-      .toggle("card__like-button_active")
-      .content.querySelector(".card");
+    likeButton.classList.toggle("card__like-button_active");
   });
 
   cardTitleEl.textContent = cardData.title;
@@ -173,6 +174,9 @@ function handleAddCardFormSubmit(evt) {
   renderCard({ title, link }, cardsWrap);
   closeModal(addCardModal);
   cardForm.reset();
+  let inactiveButtonClass = "modal__container-form-button_disabled";
+  addCardSaveButton.classList.add(inactiveButtonClass);
+  addCardSaveButton.disabled = true;
 }
 
 //Edit Event Listeners
