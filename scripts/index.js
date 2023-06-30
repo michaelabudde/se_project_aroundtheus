@@ -65,9 +65,11 @@ const cardUrlInput = addCardModal.querySelector("#card-modal-input-url");
 
 function openModal(modal) {
   modal.classList.add("modal_opened");
+  document.addEventListener("keydown", closeByEscape);
 }
 function closeModal(modal) {
   modal.classList.remove("modal_opened");
+  document.removeEventListener("keydown", closeByEscape);
 }
 
 // find all close buttons
@@ -81,13 +83,23 @@ closeButtons.forEach((button) => {
 });
 //add event listener for overlay and esc button
 
-document.addEventListener("keydown", (e) => {
+function closeByEscape(evt) {
+  if (evt.key === "Escape") {
+    const openedModal = document.querySelector(".modal_opened");
+    // find the opened popup
+    closeModal(openedModal);
+    // close the opened popup with `closePopup`
+  }
+}
+
+/* document.addEventListener("keydown", (e) => {
   if (e.key === "Escape") {
     closeModal(profileEditModal);
     closeModal(addCardModalWindow);
     closeModal(previewModalWindow);
   }
-});
+}); */
+//changed event listener to inside openModal and added new function for escape button
 
 profileEditModal.addEventListener("mousedown", (e) => {
   console.log(e.target);
@@ -174,7 +186,7 @@ function handleAddCardFormSubmit(evt) {
   renderCard({ title, link }, cardsWrap);
   closeModal(addCardModal);
   cardForm.reset();
-  let inactiveButtonClass = "modal__container-form-button_disabled";
+  const inactiveButtonClass = "modal__container-form-button_disabled";
   addCardSaveButton.classList.add(inactiveButtonClass);
   addCardSaveButton.disabled = true;
 }
@@ -191,9 +203,9 @@ profileForm.addEventListener("submit", handleProfileFormSubmit);
 
 //Add Card Listeners
 addNewCardButton.addEventListener("click", () => openModal(addCardModal));
-addCardModalCloseButton.addEventListener("click", () =>
+/* addCardModalCloseButton.addEventListener("click", () =>
   closeModal(addCardModal)
-);
+); */
 cardForm.addEventListener("submit", handleAddCardFormSubmit);
 
 initialCards.forEach((cardData) => renderCard(cardData, cardsWrap));
