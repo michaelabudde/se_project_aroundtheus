@@ -75,12 +75,13 @@ function closeModal(modal) {
 // find all close buttons
 const closeButtons = document.querySelectorAll(".modal__close");
 
-closeButtons.forEach((button) => {
+//redundant:
+/* closeButtons.forEach((button) => {
   // find the closest popup
   const modal = button.closest(".modal");
   // set the listener
   button.addEventListener("click", () => closeModal(modal));
-});
+}); */
 //add event listener for overlay and esc button
 
 function closeByEscape(evt) {
