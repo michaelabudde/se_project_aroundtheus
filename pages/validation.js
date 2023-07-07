@@ -1,7 +1,7 @@
 // enabling validation by calling enableValidation()
 // pass all the settings on call
 
-function showInputError(formEl, inputEl, { inputErrorClass, errorClass }) {
+/* function showInputError(formEl, inputEl, { inputErrorClass, errorClass }) {
   const errorMessageEl = formEl.querySelector(`#${inputEl.id}-error`);
   inputEl.classList.add(inputErrorClass);
   errorMessageEl.textContent = inputEl.validationMessage;
@@ -12,14 +12,14 @@ function hideInputError(formEl, inputEl, { inputErrorClass, errorClass }) {
   inputEl.classList.remove(inputErrorClass);
   errorMessageEl.textContent = "";
   errorMessageEl.classList.remove(errorClass);
-}
-function checkInputValidity(formEl, inputEl, options) {
+} */
+/* function checkInputValidity(formEl, inputEl, options) {
   if (!inputEl.validity.valid) {
     showInputError(formEl, inputEl, options);
     return;
   }
   hideInputError(formEl, inputEl, options);
-}
+} */
 function hasInvalidInput(inputList) {
   return !inputList.every((inputEl) => inputEl.validity.valid);
 }
@@ -32,7 +32,7 @@ function disableButton(inputEls, submitButton, inactiveButtonClass) {
   }
 }
 
-//enable button
+/* //enable button
 function enableButton(inputEls, submitButton, inactiveButtonClass) {
   if (!hasInvalidInput([...inputEls])) {
     submitButton.classList.remove(inactiveButtonClass);
@@ -67,14 +67,14 @@ function enableValidation(options) {
     });
     setEventListeners(formEl, options);
   });
-}
+} */
 
-const options = {
+/* const options = {
   formSelector: ".modal__container-form",
   inputSelector: ".modal__container-form-input",
   submitButtonSelector: ".modal__container-form-button",
   inactiveButtonClass: "modal__container-form-button_disabled",
   inputErrorClass: "modal__input_type_error",
   errorClass: "modal__error",
-};
-enableValidation(options);
+}; */
+/* enableValidation(options); */

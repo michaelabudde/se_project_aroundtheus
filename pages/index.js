@@ -1,4 +1,8 @@
-const initialCards = [
+import Card from "../components/Card.js";
+import FormValidator from "../components/FormValidator.js";
+
+import { closeModal, openModal } from "../utils/utils.js";
+/* const initialCards = [
   {
     title: "Guanajuato, MX",
     link: "https://images.unsplash.com/photo-1585975985662-449adf2e7f8f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY4NTY0OTc2OA&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080",
@@ -23,11 +27,48 @@ const initialCards = [
     title: "Barcelona, ES",
     link: "https://images.unsplash.com/photo-1523531294919-4bcd7c65e216?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY4MTMyNDg0Ng&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080",
   },
+]; */
+
+const cardData = [
+  {
+    //object 1
+    title: "Guanajuato, MX",
+    link: "https://images.unsplash.com/photo-1585975985662-449adf2e7f8f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY4NTY0OTc2OA&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080",
+  },
+
+  {
+    //object 2
+    title: "Rio de Janiero, BR",
+    link: "https://images.unsplash.com/photo-1483729558449-99ef09a8c325?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY4MjA3MDgzMA&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080",
+  },
+  {
+    //object 3
+    title: "San Juan, PR",
+    link: "https://images.unsplash.com/photo-1579687196544-08ae57ab5c11?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY4NTY0OTc0NQ&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080",
+  },
+  {
+    //object 4
+    title: "Querétaro, MX",
+    link: "https://images.unsplash.com/photo-1591933733584-bf9577821973?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY4NTY0OTczNg&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080",
+  },
+  {
+    //object 5
+    title: "Puerto Vallarta, MX",
+    link: "https://images.unsplash.com/photo-1547047549-0d757aaa848a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY4NTY0OTY3Mw&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080",
+  },
+  {
+    //object 6
+    title: "Barcelona, ES",
+    link: "https://images.unsplash.com/photo-1523531294919-4bcd7c65e216?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY4MTMyNDg0Ng&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080",
+  },
 ];
 
-const cardTemplate = document
-  .querySelector("#card-template")
-  .content.querySelector(".card");
+const cardSelector = "#card-template";
+const renderCard = (data, cardsWrap) => {
+  const card = new Card(data, cardSelector);
+  cardsWrap.prepend(card.getView());
+  card._setEventListeners();
+};
 
 //Wrappers
 const cardsWrap = document.querySelector(".cards__list");
@@ -35,17 +76,19 @@ const profileEditModal = document.querySelector("#edit-modal");
 const addCardModal = document.querySelector("#add-card-modal");
 
 const previewImageModal = document.querySelector("#preview-image-modal");
-
-const profileForm = document.forms["profile-form"];
 const cardForm = document.forms["card-form"];
+const profileForm = document.forms["profile-form"];
 
 //Buttons and other DOM Nodes
 const profileEditButton = document.querySelector("#profile-edit-button");
 const profileModalCloseButton = profileEditModal.querySelector(".modal__close");
+const addNewCardButton = document.querySelector(".profile__add-button");
 const addCardModalCloseButton = addCardModal.querySelector(".modal__close");
+
+//Profile Dom nodes
 const profileTitle = document.querySelector(".profile__title");
 const profileDescription = document.querySelector(".profile__description");
-const addNewCardButton = document.querySelector(".profile__add-button");
+
 const previewImageModalCloseButton =
   previewImageModal.querySelector(".modal__close");
 const previewImage = previewImageModal.querySelector(".modal__container-image");
@@ -63,14 +106,14 @@ const cardUrlInput = addCardModal.querySelector("#card-modal-input-url");
 
 //Open Close
 
-function openModal(modal) {
+/* function openModal(modal) {
   modal.classList.add("modal_opened");
   document.addEventListener("keydown", closeByEscape);
 }
 function closeModal(modal) {
   modal.classList.remove("modal_opened");
   document.removeEventListener("keydown", closeByEscape);
-}
+} */
 
 // find all close buttons
 const closeButtons = document.querySelectorAll(".modal__close");
@@ -135,10 +178,10 @@ previewModalWindow.addEventListener("mousedown", (e) => {
 });
 //Form Data
 
-function renderCard(cardData, wrapper) {
+/* function renderCard(cardData, wrapper) {
   const cardElement = getCardElement(cardData);
   wrapper.prepend(cardElement);
-}
+} */
 function getCardElement(cardData) {
   const cardElement = cardTemplate.cloneNode(true);
   const cardImageEl = cardElement.querySelector(".card__image");
@@ -146,26 +189,26 @@ function getCardElement(cardData) {
   const likeButton = cardElement.querySelector(".card__like-button");
   const deleteButton = cardElement.querySelector(".card__delete-button");
 
-  deleteButton.addEventListener("click", () => {
+  /*   deleteButton.addEventListener("click", () => {
     cardElement.remove();
-  });
+  }); */
   //add event listener to the delete button
   //cardelement.remove
 
-  cardImageEl.addEventListener("click", () => {
+  /*   cardImageEl.addEventListener("click", () => {
     previewImage.src = cardImageEl.src;
     previewImage.alt = cardImageEl.alt;
     previewCaption.textContent = cardTitleEl.textContent;
 
     openModal(previewImageModal);
-  });
+  }); */
 
   //add click listener to the card image element
   //call open modal with previewImageModal
 
-  likeButton.addEventListener("click", () => {
+  /*   likeButton.addEventListener("click", () => {
     likeButton.classList.toggle("card__like-button_active");
-  });
+  }); */
 
   cardTitleEl.textContent = cardData.title;
   cardImageEl.src = cardData.link;
@@ -209,4 +252,20 @@ addNewCardButton.addEventListener("click", () => openModal(addCardModal));
 ); */
 cardForm.addEventListener("submit", handleAddCardFormSubmit);
 
-initialCards.forEach((cardData) => renderCard(cardData, cardsWrap));
+cardData.forEach((cardData) => renderCard(cardData, cardsWrap));
+const config = {
+  formSelector: ".modal__container-form",
+  inputSelector: ".modal__container-form-input",
+  submitButtonSelector: ".modal__container-form-button",
+  inactiveButtonClass: "modal__container-form-button_disabled",
+  inputErrorClass: "modal__input_type_error",
+  errorClass: "modal__error",
+};
+
+//initialize form validation Edit Profile and Add Card
+const editProfileFormEl = document.querySelector("#profile-form");
+const editProfileValidator = new FormValidator(config, editProfileFormEl);
+editProfileValidator.enableValidation();
+const addCardFormEl = document.querySelector("#card-form");
+const addCardValidator = new FormValidator(config, addCardFormEl);
+addCardValidator.enableValidation();
