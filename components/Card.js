@@ -30,7 +30,8 @@ class Card {
   }
 
   _handleDeleteCard() {
-    this._cardElement.remove;
+    this._cardElement = document.querySelector(".card");
+    this._cardElement.remove();
     this._cardElement = null;
   }
 
