@@ -5,32 +5,16 @@ class Card {
     this._title = title;
     this._link = link;
     this._cardSelector = cardSelector;
-  }
-
-  _setEventListeners() {
-    this._cardElement
-      .querySelector(".card__like-button")
-      .addEventListener("click", () => {
-        this._handleLikeIcon();
-      });
-    this._cardElement
-      .querySelector(".card__delete-button")
-      .addEventListener("click", () => {
-        this._handleDeleteCard();
-      });
-    this._cardElement
-      .querySelector(".card__image")
-      .addEventListener("click", () => this._handlePreviewPicture());
+    this._likeButton = likeButton;
   }
 
   _handleLikeIcon() {
     this._cardElement
-      .querySelector(".card__like-button")
+      .querySelector(this._likeButton)
       .classList.toggle("card__like-button_active");
   }
 
   _handleDeleteCard() {
-    this._cardElement = document.querySelector(".card");
     this._cardElement.remove();
     this._cardElement = null;
   }
@@ -49,6 +33,21 @@ class Card {
 
     openModal(previewImageModal);
   }
+  _setEventListeners() {
+    this._cardElement
+      .querySelector(".card__like-button")
+      .addEventListener("click", () => {
+        this._handleLikeIcon();
+      });
+    this._cardElement
+      .querySelector(".card__delete-button")
+      .addEventListener("click", () => {
+        this._handleDeleteCard();
+      });
+    this._cardElement
+      .querySelector(".card__image")
+      .addEventListener("click", () => this._handlePreviewPicture());
+  }
   getView() {
     //get the card view
     this._cardElement = document
@@ -61,6 +60,7 @@ class Card {
     this._cardElement.querySelector(".card__title").textContent = this._title;
     //return the card
     return this._cardElement;
+    this._setEventListeners();
   }
 }
 export default Card;
