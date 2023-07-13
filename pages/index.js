@@ -48,6 +48,7 @@ const renderCard = (data, cardsWrap) => {
 const cardsWrap = document.querySelector(".cards__list");
 const profileEditModal = document.querySelector("#edit-modal");
 const addCardModal = document.querySelector("#add-card-modal");
+const previewModalWindow = document.querySelector("#preview-image-modal");
 
 const previewImageModal = document.querySelector("#preview-image-modal");
 const cardForm = document.forms["card-form"];
@@ -117,14 +118,13 @@ addCardModalWindow.addEventListener("mousedown", (e) => {
   }
 });
 
-const previewModalWindow = document.querySelector("#preview-image-modal");
-previewModalWindow.addEventListener("mousedown", (e) => {
+previewImageModal.addEventListener("mousedown", (e) => {
   console.log(e.target);
   if (
     e.target.classList.contains("modal") ||
     e.target.classList.contains("modal__close")
   ) {
-    closeModal(previewModalWindow);
+    closeModal(previewImageModal);
   }
 });
 //Form Data
@@ -147,6 +147,7 @@ function handleProfileFormSubmit(evt) {
   profileTitle.textContent = nameInput.value;
   profileDescription.textContent = jobInput.value;
   closeModal(profileEditModal);
+  editProfileValidator.resetValidation();
 }
 
 function handleAddCardFormSubmit(evt) {
@@ -156,9 +157,8 @@ function handleAddCardFormSubmit(evt) {
   renderCard({ title, link }, cardsWrap);
   closeModal(addCardModal);
   cardForm.reset();
-  const inactiveButtonClass = "modal__container-form-button_disabled";
-  addCardSaveButton.classList.add(inactiveButtonClass);
-  addCardSaveButton.disabled = true;
+
+  addCardValidator.resetValidation();
 }
 
 //Edit Event Listeners
@@ -177,7 +177,7 @@ cardForm.addEventListener("submit", handleAddCardFormSubmit);
 
 cardData.forEach((cardData) => renderCard(cardData, cardsWrap));
 const config = {
-  formSelector: ".modal__container-form",
+  formElement: ".modal__container-form",
   inputSelector: ".modal__container-form-input",
   submitButtonSelector: ".modal__container-form-button",
   inactiveButtonClass: "modal__container-form-button_disabled",
@@ -186,9 +186,9 @@ const config = {
 };
 
 //initialize form validation Edit Profile and Add Card
-const editProfileFormEl = document.querySelector(profileForm);
+const editProfileFormEl = document.querySelector("#profile-form");
 const editProfileValidator = new FormValidator(config, editProfileFormEl);
 editProfileValidator.enableValidation();
-const addCardFormEl = document.querySelector(cardForm);
+const addCardFormEl = document.querySelector("#card-form");
 const addCardValidator = new FormValidator(config, addCardFormEl);
 addCardValidator.enableValidation();
