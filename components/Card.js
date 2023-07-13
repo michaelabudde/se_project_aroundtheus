@@ -21,7 +21,7 @@ class Card {
     this._previewImage.alt = this._title;
     this._previewCaption.textContent = this._title;
 
-    openModal(previewImageModal);
+    openModal(this._previewImageModal);
   }
   _setEventListeners() {
     this._cardLikeButton.addEventListener("click", () => {
@@ -55,13 +55,12 @@ class Card {
       ".card__delete-button"
     );
     this._cardImage = this._cardElement.querySelector(".card__image");
-    const cardImage = this._cardElement.querySelector(".card__image");
-    cardImage.src = this._link;
-    cardImage.alt = this._title;
+    this._cardImage.src = this._link;
+    this._cardImage.alt = this._title;
     this._cardElement.querySelector(".card__title").textContent = this._title;
+    this._setEventListeners();
     //return the card
     return this._cardElement;
-    this._setEventListeners();
   }
 }
 export default Card;

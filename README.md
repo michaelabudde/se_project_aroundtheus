@@ -1,4 +1,4 @@
-## Project 3: Around The U.S.
+## Around The U.S. Project
 
 This project is the landing page for an explorationn project called Around the U.S. This page is meant to be interactive and engaging.
 
