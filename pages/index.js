@@ -41,7 +41,6 @@ const cardSelector = "#card-template";
 const renderCard = (data, cardsWrap) => {
   const card = new Card(data, cardSelector);
   cardsWrap.prepend(card.getView());
-  card._setEventListeners();
 };
 
 //Wrappers
@@ -186,9 +185,9 @@ const config = {
 };
 
 //initialize form validation Edit Profile and Add Card
-const editProfileFormEl = document.querySelector("#profile-form");
-const editProfileValidator = new FormValidator(config, editProfileFormEl);
+/* const editProfileFormEl = document.querySelector("#profile-form"); */
+const editProfileValidator = new FormValidator(config, profileForm);
 editProfileValidator.enableValidation();
-const addCardFormEl = document.querySelector("#card-form");
-const addCardValidator = new FormValidator(config, addCardFormEl);
+/* const addCardFormEl = document.querySelector("#card-form"); */
+const addCardValidator = new FormValidator(config, cardForm);
 addCardValidator.enableValidation();

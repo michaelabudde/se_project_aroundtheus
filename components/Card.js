@@ -25,14 +25,14 @@ class Card {
   }
   _setEventListeners() {
     this._cardLikeButton.addEventListener("click", (event) => {
-      event.preventDefault();
-      event.stopImmediatePropagation();
+      /*       event.preventDefault();
+      event.stopImmediatePropagation(); */
       this._handleLikeIcon();
     });
 
     this._deleteCardButton.addEventListener("click", (event) => {
-      event.preventDefault();
-      event.stopImmediatePropagation();
+      /*       event.preventDefault();
+      event.stopImmediatePropagation(); */
       this._handleDeleteCard();
     });
 
