@@ -24,11 +24,15 @@ class Card {
     openModal(this._previewImageModal);
   }
   _setEventListeners() {
-    this._cardLikeButton.addEventListener("click", () => {
+    this._cardLikeButton.addEventListener("click", (event) => {
+      event.preventDefault();
+      event.stopImmediatePropagation();
       this._handleLikeIcon();
     });
 
-    this._deleteCardButton.addEventListener("click", () => {
+    this._deleteCardButton.addEventListener("click", (event) => {
+      event.preventDefault();
+      event.stopImmediatePropagation();
       this._handleDeleteCard();
     });
 
