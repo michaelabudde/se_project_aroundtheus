@@ -1,6 +1,6 @@
 import { openModal } from "../utils/utils.js";
 
-class Card {
+export default class Card {
   constructor({ title, link }, cardSelector) {
     this._title = title;
     this._link = link;
@@ -25,14 +25,10 @@ class Card {
   }
   _setEventListeners() {
     this._cardLikeButton.addEventListener("click", (event) => {
-      /*       event.preventDefault();
-      event.stopImmediatePropagation(); */
       this._handleLikeIcon();
     });
 
     this._deleteCardButton.addEventListener("click", (event) => {
-      /*       event.preventDefault();
-      event.stopImmediatePropagation(); */
       this._handleDeleteCard();
     });
 
@@ -67,4 +63,3 @@ class Card {
     return this._cardElement;
   }
 }
-export default Card;

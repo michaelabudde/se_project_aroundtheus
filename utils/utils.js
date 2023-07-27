@@ -1,4 +1,5 @@
-export function openModal(modal) {
+//delete file
+/* export function openModal(modal) {
   modal.classList.add("modal_opened");
   document.addEventListener("keydown", closeByEscape);
 }
@@ -14,4 +15,4 @@ function closeByEscape(evt) {
     closeModal(openedModal);
     // close the opened popup with `closePopup`
   }
-}
+} */
