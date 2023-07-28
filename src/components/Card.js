@@ -4,7 +4,32 @@ export default class Card {
     this._link = link;
     this._cardSelector = cardSelector;
   }
-
+  getView() {
+    //get the card view
+    this._cardElement = document
+      .querySelector(this._cardSelector)
+      .content.querySelector(".card")
+      .cloneNode(true);
+    this._cardLikeButton =
+      this._cardElement.querySelector(".card__like-button");
+    this._previewImageModal = document.querySelector("#preview-image-modal");
+    this._previewImage = this._previewImageModal.querySelector(
+      ".modal__container-image"
+    );
+    this._previewCaption = this._previewImageModal.querySelector(
+      ".modal__container-caption"
+    );
+    this._deleteCardButton = this._cardElement.querySelector(
+      ".card__delete-button"
+    );
+    this._cardImage = this._cardElement.querySelector(".card__image");
+    this._cardImage.src = this._link;
+    this._cardImage.alt = this._title;
+    this._cardElement.querySelector(".card__title").textContent = this._title;
+    this._setEventListeners();
+    //return the card
+    return this._cardElement;
+  }
   _handleLikeIcon() {
     this._cardLikeButton.classList.toggle("card__like-button_active");
   }
@@ -33,31 +58,5 @@ export default class Card {
     this._cardImage.addEventListener("click", () =>
       this._handlePreviewPicture()
     );
-  }
-  getView() {
-    //get the card view
-    this._cardElement = document
-      .querySelector(this._cardSelector)
-      .content.querySelector(".card")
-      .cloneNode(true);
-    this._cardLikeButton =
-      this._cardElement.querySelector(".card__like-button");
-    this._previewImageModal = document.querySelector("#preview-image-modal");
-    this._previewImage = this._previewImageModal.querySelector(
-      ".modal__container-image"
-    );
-    this._previewCaption = this._previewImageModal.querySelector(
-      ".modal__container-caption"
-    );
-    this._deleteCardButton = this._cardElement.querySelector(
-      ".card__delete-button"
-    );
-    this._cardImage = this._cardElement.querySelector(".card__image");
-    this._cardImage.src = this._link;
-    this._cardImage.alt = this._title;
-    this._cardElement.querySelector(".card__title").textContent = this._title;
-    this._setEventListeners();
-    //return the card
-    return this._cardElement;
   }
 }

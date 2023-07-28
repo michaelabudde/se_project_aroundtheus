@@ -45,7 +45,7 @@ export const nameInput = document.querySelector("#profile-title-input");
 export const jobInput = document.querySelector("#profile-description-input");
 //add card
 export const addCardModal = document.querySelector("#add-card-modal");
-export const addCardForm = addCardModal.querySelector(".modal__form");
+export const addCardForm = addCardModal.querySelector("#card-form");
 export const cardTitleInput = addCardModal.querySelector(
   "#card-modal-input-title"
 );
@@ -57,7 +57,7 @@ export const profileEditButton = document.querySelector(
 export const addNewCardButton = document.querySelector(".profile__add-button");
 //validation
 export const validationSettings = {
-  formElement: ".modal__container-form",
+  formSelector: ".modal__container-form",
   inputSelector: ".modal__container-form-input",
   submitButtonSelector: ".modal__container-form-button",
   inactiveButtonClass: "modal__container-form-button_disabled",

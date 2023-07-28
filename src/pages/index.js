@@ -88,8 +88,8 @@ profileEditButton.addEventListener("click", () => {
 
 function handleProfileEditClick() {
   const user = userInfo.getUserInfo();
-  userNameInput.value = user.name;
-  userDescriptionInput.value = user.job;
+  nameInput.value = user.name;
+  jobInput.value = user.job;
   profileEditPopup.open();
 }
 
