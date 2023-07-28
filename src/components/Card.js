@@ -1,5 +1,3 @@
-import { openModal } from "../utils/utils.js";
-
 export default class Card {
   constructor({ title, link }, cardSelector) {
     this._title = title;

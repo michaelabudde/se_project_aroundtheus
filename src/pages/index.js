@@ -47,6 +47,15 @@ function createCard(cardData) {
 function handleCardClick(cardData) {
   previewImage.open(cardData);
 }
+//form validation
+const editProfileFormValidator = new FormValidator(
+  validationSettings,
+  profileEditForm
+);
+editProfileFormValidator.enableValidation();
+
+const addCardFormValidator = new FormValidator(validationSettings, addCardForm);
+addCardFormValidator.enableValidation();
 
 //user info
 const userInfo = new UserInfo({
@@ -92,7 +101,7 @@ function handleEditProfileSubmit(inputValues) {
 // add card
 const addCardPopup = new ModalWithForm("#add-card-modal", handleAddCardSubmit);
 addCardPopup.setEventListeners();
-addCardButton.addEventListener("click", () => {
+addNewCardButton.addEventListener("click", () => {
   addCardFormValidator.resetValidation();
   addCardPopup.open();
 });
@@ -107,13 +116,3 @@ function handleAddCardSubmit(inputValues) {
   section.addItem(newCard);
   addCardPopup.close();
 }
-
-//form validation
-const editProfileFormValidator = new FormValidator(
-  validationSettings,
-  profileEditForm
-);
-editProfileFormValidator.enableValidation();
-
-const addCardFormValidator = new FormValidator(validationSettings, addCardForm);
-addCardFormValidator.enableValidation();

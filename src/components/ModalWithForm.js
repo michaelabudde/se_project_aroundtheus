@@ -1,6 +1,6 @@
 import Modal from "./Modal.js";
 export default class ModalWithForm extends Modal {
-  constructor({ modalSelector, handleFormSubmit }) {
+  constructor(modalSelector, handleFormSubmit) {
     super({ modalSelector });
     this._modalForm = this._modalElement.querySelector(
       ".modal__container-form"
@@ -19,7 +19,7 @@ export default class ModalWithForm extends Modal {
 
   setEventListeners() {
     super.setEventListeners();
-    this._form.addEventListener("submit", this._submitHandler);
+    this._modalForm.addEventListener("submit", this._submitHandler);
   }
 
   _submitHandler = (evt) => {

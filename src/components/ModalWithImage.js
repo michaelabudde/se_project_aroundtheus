@@ -2,7 +2,7 @@ import Modal from "./Modal.js";
 
 export default class ModalWithImage extends Modal {
   constructor(modalSelector) {
-    super(modalSelector);
+    super({ modalSelector: modalSelector });
     this._containerImage = this._modalElement.querySelector(
       ".modal__container-preview"
     );
