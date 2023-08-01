@@ -12,7 +12,7 @@ export default class ModalWithForm extends Modal {
     this._modalForm
       .querySelectorAll(".modal__container-form-input")
       .forEach((input) => {
-        values[input.title] = input.value;
+        values[input.name] = input.value;
       });
     return values;
   }

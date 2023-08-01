@@ -107,10 +107,10 @@ addNewCardButton.addEventListener("click", () => {
 });
 
 function handleAddCardSubmit(inputValues) {
-  const { title, description } = inputValues;
+  const { title, link } = inputValues;
   const newCardData = {
-    name: title,
-    link: description,
+    title: title,
+    link: link,
   };
   const newCard = createCard(newCardData);
   section.addItem(newCard);
