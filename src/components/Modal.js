@@ -17,8 +17,21 @@ export default class Modal {
     if (event.key === "Escape") {
       this.close();
     }
+    this._modalElement.removeEventListener("mousedown", this._handleBackdropClose)
+  };
+  _handleBackdropClose = (evt) => {
+    if (evt.target.classList.contains("modal")) {
+      this.close();
+    }
+    
   };
   setEventListeners() {
+    this._modalCloseButton.addEventListener("click", () => {
+      this.close();
+    });
+    this._modalElement.addEventListener("mousedown", this._handleBackdropClose);
+  }
+/*   setEventListeners() {
     this._modalCloseButton.addEventListener("click", () => {
       this.close();
     });
@@ -26,6 +39,6 @@ export default class Modal {
       if (evt.target.classList.contains("modal")) {
         this.close();
       }
-    });
+    }); */
   }
 }
