@@ -1,11 +1,9 @@
-import Modal from "./Modal";
-import ModalWithImage from "./ModalWithImage";
-
 export default class Card {
-  constructor({ title, link }, cardSelector) {
+  constructor({ title, link }, cardSelector, handleImageClick) {
     this._title = title;
     this._link = link;
     this._cardSelector = cardSelector;
+    this._handleImageClick = handleImageClick;
   }
   getView() {
     //get the card view
@@ -29,6 +27,9 @@ export default class Card {
     this._cardImage.src = this._link;
     this._cardImage.alt = this._title;
     this._cardElement.querySelector(".card__title").textContent = this._title;
+    this._previewImage.src = this._link;
+    this._previewImage.alt = this._title;
+    this._previewCaption.textContent = this._title;
     this._setEventListeners();
     //return the card
     return this._cardElement;
@@ -42,15 +43,6 @@ export default class Card {
     this._cardElement = null;
   }
 
-  _handleImageClick() {
-    this._previewImage.src = this._link;
-    this._previewImage.alt = this._title;
-    this._previewCaption.textContent = this._title;
-
-    const modalWithImg = new ModalWithImage("#preview-image-modal");
-
-    modalWithImg.open({ name: this._title, link: this._link });
-  }
   _setEventListeners() {
     this._cardLikeButton.addEventListener("click", (event) => {
       this._handleLikeIcon();
@@ -60,6 +52,8 @@ export default class Card {
       this._handleDeleteCard();
     });
 
-    this._cardImage.addEventListener("click", () => this._handleImageClick());
+    this._cardImage.addEventListener("click", () =>
+      this._handleImageClick({ title: this._title, link: this._link })
+    );
   }
 }

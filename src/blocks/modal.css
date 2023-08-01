@@ -44,6 +44,9 @@
   border: none;
   cursor: pointer;
 }
+.modal__close:hover {
+  opacity: 0.6;
+}
 
 .modal__container-form {
   width: fit-content;
@@ -95,6 +98,9 @@
   padding: 0px;
 }
 
+.modal__container-form-button:hover {
+  opacity: 0.6;
+}
 .modal__container-preview {
   max-width: 75%;
   max-height: 75%;
@@ -126,6 +132,9 @@
   background-size: contain;
   border: none;
   cursor: pointer;
+}
+.modal__close-container-image:hover {
+  opacity: 0.6;
 }
 .modal__container-image {
   width: 100%;

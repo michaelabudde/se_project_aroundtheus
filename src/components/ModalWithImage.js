@@ -11,10 +11,10 @@ export default class ModalWithImage extends Modal {
     );
   }
 
-  open({ name, link }) {
+  open({ title, link }) {
     const image = this._containerImage.querySelector(".modal__container-image");
-    this._containerImageTitle.textContent = name;
-    image.alt = name;
+    this._containerImageTitle.textContent = title;
+    image.alt = title;
     image.src = link;
     super.open();
   }

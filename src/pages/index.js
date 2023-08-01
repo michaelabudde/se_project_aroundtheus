@@ -23,7 +23,7 @@ import {
   addNewCardButton,
   //validation
   validationSettings,
-} from "../utils/Constants.js";
+} from "../utils/constants.js";
 import "../pages/index.css";
 
 //Cards

@@ -68,25 +68,17 @@ export default class FormValidator {
       });
     });
   }
-  enableValidation() {
-    this._setEventListeners();
-    this._form.addEventListener("submit", (evt) => {
-      evt.preventDefault();
-    });
-    this._toggleButtonState();
-  }
-
-  /*   resetValidation() {
-    this._inputList.forEach((inputElement) => {
-      this._hideInputError(inputElement);
-    });
-    this._toggleButtonState();
-  } */
   resetValidation() {
     this._toggleButtonState();
 
     this._inputElements.forEach((inputElement) => {
       this._hideInputError(inputElement);
+    });
+  }
+  enableValidation() {
+    this._setEventListeners();
+    this._form.addEventListener("submit", (evt) => {
+      evt.preventDefault();
     });
   }
 }
