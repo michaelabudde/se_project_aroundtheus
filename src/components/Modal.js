@@ -33,13 +33,4 @@ export default class Modal {
     });
     this._modalElement.addEventListener("mousedown", this._handleBackdropClose);
   }
-  /*   setEventListeners() {
-    this._modalCloseButton.addEventListener("click", () => {
-      this.close();
-    });
-    this._modalElement.addEventListener("mousedown", (evt) => {
-      if (evt.target.classList.contains("modal")) {
-        this.close();
-      }
-    }); */
 }

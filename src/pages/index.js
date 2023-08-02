@@ -99,14 +99,15 @@ function handleEditProfileSubmit(inputValues) {
 }
 
 // add card
-const addCardPopup = new ModalWithForm("#add-card-modal", handleAddCardSubmit);
-addCardPopup.setEventListeners();
+const addCardModal = new ModalWithForm("#add-card-modal", handleAddCardSubmit);
+addCardModal.setEventListeners();
 addNewCardButton.addEventListener("click", () => {
   addCardFormValidator.resetValidation();
-  addCardPopup.open();
+  addCardModal.open();
 });
 
 function handleAddCardSubmit(inputValues) {
+  debugger;
   const { title, link } = inputValues;
   const newCardData = {
     title: title,
@@ -114,5 +115,5 @@ function handleAddCardSubmit(inputValues) {
   };
   const newCard = createCard(newCardData);
   section.addItem(newCard);
-  addCardPopup.close();
+  addCardModal.close();
 }
