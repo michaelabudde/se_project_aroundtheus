@@ -107,7 +107,6 @@ addNewCardButton.addEventListener("click", () => {
 });
 
 function handleAddCardSubmit(inputValues) {
-  debugger;
   const { title, link } = inputValues;
   const newCardData = {
     title: title,

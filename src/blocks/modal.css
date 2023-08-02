@@ -101,6 +101,16 @@
 .modal__container-form-button:hover {
   opacity: 0.6;
 }
+.modal__container-form-button_disabled {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  background: #ffffff;
+  color: rgba(0, 0, 0, 0.2);
+}
+
+.modal__container-form-button_disabled:hover {
+  opacity: 1;
+}
+
 .modal__container-preview {
   max-width: 75%;
   max-height: 75%;
@@ -141,12 +151,6 @@
 }
 .modal__label {
   position: relative;
-}
-
-.modal__container-form-button_disabled {
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  background: #ffffff;
-  color: rgba(0, 0, 0, 0.2);
 }
 
 .modal__input_type_error {

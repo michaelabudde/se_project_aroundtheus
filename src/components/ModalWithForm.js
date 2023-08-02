@@ -23,7 +23,6 @@ export default class ModalWithForm extends Modal {
   }
 
   _handleSubmit = (evt) => {
-    debugger;
     evt.preventDefault();
     const inputValues = this._getInputValues();
     this._handleFormSubmit(inputValues);
