@@ -1,5 +1,5 @@
 //cards
-export const initialCards = [
+/* export const initialCards = [
   {
     //object 1
     title: "Guanajuato, MX",
@@ -31,7 +31,15 @@ export const initialCards = [
     title: "Barcelona, ES",
     link: "https://images.unsplash.com/photo-1523531294919-4bcd7c65e216?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY4MTMyNDg0Ng&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080",
   },
-];
+]; */
+export const selectors = {
+  cardSection: ".cards__list",
+  cardTemplate: "#card-template",
+  previewModal: "#modal-preview",
+  cardModalSelector: "#add-card-modal",
+  profileModalSelector: "#profile-edit-modal",
+  changeAvaModal: "#change-ava-img",
+};
 export const cardList = document.querySelector(".cards__list");
 export const cardData = {
   name: "Guanajuato, MX",
@@ -44,12 +52,11 @@ export const profileEditForm = profileEditModal.querySelector("#profile-form");
 export const nameInput = document.querySelector("#profile-title-input");
 export const jobInput = document.querySelector("#profile-description-input");
 //add card
-export const addCardModal = document.querySelector("#add-card-modal");
-export const addCardForm = addCardModal.querySelector("#card-form");
-export const cardTitleInput = addCardModal.querySelector(
-  "#card-modal-input-title"
-);
-export const cardUrlInput = addCardModal.querySelector("#card-modal-input-url");
+/* export const document = document.querySelector("#add-card-modal");
+ */
+export const addCardForm = document.querySelector("#card-form");
+export const cardTitleInput = document.querySelector("#card-modal-input-title");
+export const cardUrlInput = document.querySelector("#card-modal-input-url");
 //buttons
 export const profileEditButton = document.querySelector(
   ".profile__edit-button"
@@ -64,3 +71,9 @@ export const validationSettings = {
   inputErrorClass: "modal__input_type_error",
   errorClass: "modal__error",
 };
+/* export const avaButton = avaEditForm.querySelector(".change-avi-form__button");
+ */
+export const avaEditButton = document.querySelector(
+  "#profile-ava__image-hover-button"
+);
+export const avaEditForm = document.querySelector("#change-ava-form");

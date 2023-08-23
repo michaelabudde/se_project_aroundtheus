@@ -165,7 +165,23 @@
   transition: opacity 0.3s;
   width: 358px;
 }
-
+.modal__delete-container {
+  box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.15);
+  background: rgba(255, 255, 255, 1);
+  font-family: Inter;
+  font-size: 24px;
+  font-weight: 900;
+  line-height: 29px;
+  letter-spacing: 0em;
+  text-align: left;
+  width: 430px;
+  height: 181px;
+  top: 270px;
+  left: 425px;
+  border-radius: 10px;
+  position: relative;
+  margin: auto;
+}
 @media screen and (max-width: 660px) {
   .modal__container {
     width: 238px;
