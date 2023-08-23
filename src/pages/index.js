@@ -116,3 +116,30 @@ function handleAddCardSubmit(inputValues) {
   section.addItem(newCard);
   addCardModal.close();
 }
+
+//API
+const api = new Api({
+  baseUrl: "https://around-api.en.tripleten-services.com/v1",
+  headers: {
+    authorization: "498919bf-f014-4fef-8736-2688c4ecb079",
+    "Content-Type": "application/json",
+  },
+});
+Promise.all([api.getUserInfo(), api.getInitialCards()])
+  .then(([userData, cardData]) => {
+    userInfo.setUserInfo(userData);
+    userInfo.setAvatar(userData.avatar);
+    userId = userData._id;
+    newCardSection = new Section(
+      {
+        items: cardData,
+        renderer: (data) => {
+          const newCard = createCard(data);
+          newCardSection.addItem(newCard);
+        },
+      },
+      selectors.cardSection
+    );
+    newCardSection.renderItems();
+  })
+  .catch(console.error);
