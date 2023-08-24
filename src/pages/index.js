@@ -5,18 +5,18 @@ import ModalWithForm from "../components/ModalWithForm.js";
 import ModalConfirmation from "../components/ModalConfirmation.js";
 import UserInfo from "../components/UserInfo.js";
 import Section from "../components/Section.js";
-import Api from "../components/Api";
+import Api from "../components/Api.js";
 import {
   selectors,
   //cards
-  cardList,
-  cardData,
+  /*   cardList,
+  cardData, */
   cardSelector,
   //profile
   profileEditForm,
   nameInput,
   jobInput,
-  avaEditButton,
+  avaEditForm,
   //add card
   addCardForm,
   cardTitleInput,
@@ -113,10 +113,14 @@ editProfileFormValidator.enableValidation();
 const addCardFormValidator = new FormValidator(validationSettings, addCardForm);
 addCardFormValidator.enableValidation();
 
+const avaFormValidator = new FormValidator(validationSettings, avaEditForm);
+avaFormValidator.enableValidation();
+
 //user info
 const userInfo = new UserInfo({
   userNameSelector: ".profile__title",
-  userTitleSelector: ".profile__description",
+  userDescriptionSelector: ".profile__description",
+  userAva: ".profile__image",
 });
 const avatarModal = new ModalWithForm(selectors.changeAvaModal, handleAvaModal);
 
@@ -176,6 +180,7 @@ const addCardModal = new ModalWithForm(
 addCardModal.setEventListeners();
 addNewCardButton.addEventListener("click", () => {
   addCardFormValidator.resetValidation();
+  addCardFormValidator.toggleButtonState();
   addCardModal.open();
 });
 
