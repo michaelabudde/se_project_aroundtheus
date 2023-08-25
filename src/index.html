@@ -70,7 +70,7 @@
             ><input
               type="text"
               id="profile-title-input"
-              name="title"
+              name="name"
               class="modal__container-form-input"
               placeholder="Name"
               maxlength="40"
@@ -83,7 +83,7 @@
             <input
               type="text"
               id="profile-description-input"
-              name="description"
+              name="about"
               class="modal__container-form-input"
               placeholder="Description"
               maxlength="200"
@@ -164,13 +164,13 @@
     </div>
     <!--Change Avatar-->
     <div class="modal" id="change-ava-img">
-      <div class="modal__container">
+      <div class="modal__container modal__container-edit-ava">
         <form class="modal__container-form" id="change-ava-form" novalidate>
           <h2 class="modal__heading">Change Profile Picture</h2>
           <input
             id="change-ava-form__link"
             type="url"
-            class="modal__input"
+            class="modal__container-form-input modal__container-form-input-ava"
             name="avatar"
             placeholder="Image link"
             required

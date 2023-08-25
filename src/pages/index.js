@@ -24,6 +24,7 @@ import {
   //buttons
   profileEditButton,
   addNewCardButton,
+  avaEditButton,
   //validation
   validationSettings,
 } from "../utils/constants.js";
@@ -43,18 +44,17 @@ import "../pages/index.css";
 section.renderItems(); */
 
 function createCard(cardData) {
-  const card = new Card(
-    cardData.name,
-    cardData.link,
-    cardData.isLiked,
-    cardData.likes,
-    cardData._id,
-    userId,
+  const card = new Card({
+    name: cardData.name,
+    link: cardData.link,
+    isLiked: cardData.isLiked,
+    cardId: cardData._id,
+    userId: userId,
     handleCardClick,
     handleDeleteClick,
     handleLikeClick,
-    cardSelector
-  );
+    cardSelector,
+  });
   return card.getView();
 }
 
@@ -160,6 +160,12 @@ profileEditButton.addEventListener("click", () => {
   handleProfileEditClick();
 });
 
+avaEditButton.addEventListener("click", () => {
+  avaFormValidator.toggleButtonState();
+  avatarModal.open();
+});
+avatarModal.setEventListeners();
+
 function handleEditProfileSubmit(inputValues) {
   userInfo.setUserInfo(inputValues);
   profileEditModal.close();
@@ -192,8 +198,8 @@ function handleAddCardSubmit(inputValues) {
   api
     .addNewCard(inputValues)
     .then((cardData) => {
-      const addCardModal = createCard(cardData);
-      newCardSection.addItem(addCardModal);
+      const addCard = createCard(cardData);
+      newCardSection.addItem(addCard);
       addCardModal.close();
     })
     .catch((err) => {

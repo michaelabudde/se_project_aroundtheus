@@ -1,16 +1,15 @@
 export default class Card {
-  constructor(
+  constructor({
     name,
     link,
     isLiked,
-    /*     likes, */
     cardId,
     userId,
     handleCardClick,
     handleDeleteClick,
     handleLikeClick,
-    cardSelector
-  ) {
+    cardSelector,
+  }) {
     this._name = name;
     this._link = link;
     this.isLiked = isLiked;
@@ -47,7 +46,7 @@ export default class Card {
     }
   }
 
-  _updateLikes(isLiked) {
+  updateLikes(isLiked) {
     this.isLiked = isLiked;
     this._renderLikes();
   }
@@ -66,7 +65,7 @@ export default class Card {
       .cloneNode(true);
   }
 
-  _getView() {
+  getView() {
     this._cardElement = this._getTemplate();
     this._cardImage = this._cardElement.querySelector(".card__image");
     this._cardLikeButton =

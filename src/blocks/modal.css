@@ -182,6 +182,16 @@
   position: relative;
   margin: auto;
 }
+
+.modal__container-edit-ava {
+  height: 252px;
+  border: 1px solid rgba(0, 0, 0, 1);
+  padding: 10px 19px;
+}
+
+.modal__container-form-input-ava {
+  padding-top: 20px;
+}
 @media screen and (max-width: 660px) {
   .modal__container {
     width: 238px;
