@@ -19,8 +19,8 @@ import {
   avaEditForm,
   //add card
   addCardForm,
-  cardTitleInput,
-  cardUrlInput,
+  /*   cardTitleInput,
+  cardUrlInput, */
   //buttons
   profileEditButton,
   addNewCardButton,
@@ -192,8 +192,8 @@ function handleAddCardSubmit(inputValues) {
   api
     .addNewCard(inputValues)
     .then((cardData) => {
-      const addCard = createCard(cardData);
-      newCardSection.addItem(addCard);
+      const addCardModal = createCard(cardData);
+      newCardSection.addItem(addCardModal);
       addCardModal.close();
     })
     .catch((err) => {

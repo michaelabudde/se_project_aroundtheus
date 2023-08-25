@@ -35,7 +35,7 @@ export default class Card {
     });
   }
 
-  handleDeleteCard() {
+  _handleDeleteCard() {
     this._cardElement.remove();
   }
 
@@ -47,7 +47,7 @@ export default class Card {
     }
   }
 
-  updateLikes(isLiked) {
+  _updateLikes(isLiked) {
     this.isLiked = isLiked;
     this._renderLikes();
   }
@@ -66,7 +66,7 @@ export default class Card {
       .cloneNode(true);
   }
 
-  getView() {
+  _getView() {
     this._cardElement = this._getTemplate();
     this._cardImage = this._cardElement.querySelector(".card__image");
     this._cardLikeButton =

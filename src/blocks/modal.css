@@ -201,6 +201,11 @@
   .modal__container-form-description {
     width: 238px;
   }
+
+  .modal__container-form-input {
+    width: 238px;
+  }
+
   .modal__container-form-button {
     width: 238px;
     font-size: 14px;
