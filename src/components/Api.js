@@ -41,6 +41,7 @@ export default class Api {
       body: JSON.stringify(inputValues),
     }).then(this._checkResponse);
   }
+
   deleteCard(cardId) {
     return fetch(`${this._baseUrl}/cards/${cardId}`, {
       method: "DELETE",

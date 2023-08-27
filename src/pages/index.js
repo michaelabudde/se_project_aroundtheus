@@ -9,19 +9,16 @@ import Api from "../components/Api.js";
 import {
   selectors,
   //cards
-  /*   cardList,
-  cardData, */
   cardSelector,
   //profile
   profileEditForm,
   nameInput,
-  jobInput,
+  aboutInput,
   avaEditForm,
   //add card
   addCardForm,
-  /*   cardTitleInput,
-  cardUrlInput, */
   //buttons
+  deleteModalButton,
   profileEditButton,
   addNewCardButton,
   avaEditButton,
@@ -82,7 +79,10 @@ function handleLikeClick(card) {
       });
   }
 }
-const deleteCardModal = new ModalConfirmation("#modal__delete");
+const deleteCardModal = new ModalConfirmation(
+  selectors.deleteModal,
+  handleDeleteClick
+);
 
 function handleDeleteClick(card) {
   deleteCardModal.open();
@@ -103,6 +103,11 @@ function handleDeleteClick(card) {
       });
   });
 }
+deleteCardModal.setEventListeners();
+deleteModalButton.addEventListener("click", (evt) => {
+  evt.preventDefault();
+  /*   handleDeleteClick(); */
+});
 //form validation
 const editProfileFormValidator = new FormValidator(
   validationSettings,
@@ -174,7 +179,7 @@ function handleEditProfileSubmit(inputValues) {
 function handleProfileEditClick() {
   const user = userInfo.getUserInfo();
   nameInput.value = user.name;
-  jobInput.value = user.job;
+  aboutInput.value = user.about;
   profileEditModal.open();
 }
 

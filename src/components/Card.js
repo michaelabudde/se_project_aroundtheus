@@ -19,7 +19,7 @@ export default class Card {
     this._cardSelector = cardSelector;
     this._handleCardClick = handleCardClick;
     this._handleLikeClick = handleLikeClick;
-    this._handleDeleteClick = handleDeleteClick;
+    this.handleDeleteClick = handleDeleteClick;
   }
 
   _setEventListeners() {
@@ -27,10 +27,10 @@ export default class Card {
       this._handleLikeClick(this)
     );
     this._cardDeleteButton.addEventListener("click", () => {
-      this._handleDeleteCard(this);
+      this.handleDeleteClick(this);
     });
     this._cardImage.addEventListener("click", () => {
-      this._handleImageClick(this._getData());
+      this._handleCardClick(this._getData());
     });
   }
 

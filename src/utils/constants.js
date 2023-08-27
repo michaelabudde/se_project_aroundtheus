@@ -37,20 +37,22 @@ export const selectors = {
   cardTemplate: "#card-template",
   previewModal: "#modal-preview",
   cardModalSelector: "#add-card-modal",
-  profileModalSelector: "#profile-edit-modal",
+  /*   profileModalSelector: "#edit-modal", */
   changeAvaModal: "#change-ava-img",
+  deleteModal: "#modal__delete",
 };
-export const cardList = document.querySelector(".cards__list");
-export const cardData = {
+/* export const cardList = document.querySelector(".cards__list");
+ */ export const cardData = {
   name: "Guanajuato, MX",
   link: "https://images.unsplash.com/photo-1585975985662-449adf2e7f8f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY4NTY0OTc2OA&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080",
 };
 export const cardSelector = "#card-template";
 //profile
-export const profileEditModal = document.querySelector("#edit-modal");
-export const profileEditForm = profileEditModal.querySelector("#profile-form");
+/* export const profileEditModal = document.querySelector("#edit-modal");
+ */
+export const profileEditForm = document.querySelector("#profile-form");
 export const nameInput = document.querySelector("#profile-title-input");
-export const jobInput = document.querySelector("#profile-description-input");
+export const aboutInput = document.querySelector("#profile-description-input");
 //add card
 /* export const document = document.querySelector("#add-card-modal");
  */
@@ -62,6 +64,10 @@ export const profileEditButton = document.querySelector(
   ".profile__edit-button"
 );
 export const addNewCardButton = document.querySelector(".profile__add-button");
+export const deleteModal = document.querySelector("#modal__delete");
+export const deleteModalButton = deleteModal.querySelector(
+  ".modal__container-form-button"
+);
 //validation
 export const validationSettings = {
   formSelector: ".modal__container-form",

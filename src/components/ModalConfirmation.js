@@ -3,16 +3,12 @@ import Modal from "./Modal.js";
 export default class ModalConfirmation extends Modal {
   constructor(modalSelector) {
     super({ modalSelector });
-    this._modalForm = this._modalElement.querySelector(
-      ".modal__container-form"
-    );
-    this._saveButton = this._modalForm.querySelector(
-      ".modal__container-form-button"
-    );
+    this._modalForm = document.querySelector(".modal__container-form");
+    this._saveButton = document.querySelector(".modal__container-form-button");
   }
 
   setSubmitAction(action) {
-    this._handleConfirm = action;
+    this._handleSubmit = action;
   }
 
   renderLoading(isLoading) {
