@@ -19,6 +19,7 @@ import {
   addCardForm,
   //buttons
   deleteModalButton,
+  deleteModalForm,
   profileEditButton,
   addNewCardButton,
   avaEditButton,
@@ -80,12 +81,11 @@ function handleLikeClick(card) {
   }
 }
 const deleteCardModal = new ModalConfirmation(
-  selectors.deleteModal,
-  deleteCard
+  selectors.deleteModal
+  /*   handleDeleteClick */
 );
 
 function handleDeleteClick(card) {
-  deleteCardModal.open();
   deleteCardModal.setSubmitAction(() => {
     deleteCardModal.renderLoading(true);
     api
@@ -102,12 +102,12 @@ function handleDeleteClick(card) {
         deleteCardModal.renderLoading(false);
       });
   });
+  deleteCardModal.open();
 }
-deleteCardModal.setEventListeners();
-deleteModalButton.addEventListener("click", (evt) => {
+/* deleteCardModal.setEventListeners(); */
+/* deleteModalButton.addEventListener("click", (evt) => {
   evt.preventDefault();
-  /*   handleDeleteClick(); */
-});
+}); */
 //form validation
 const editProfileFormValidator = new FormValidator(
   validationSettings,
@@ -120,6 +120,12 @@ addCardFormValidator.enableValidation();
 
 const avaFormValidator = new FormValidator(validationSettings, avaEditForm);
 avaFormValidator.enableValidation();
+
+const deleteFormValidator = new FormValidator(
+  validationSettings,
+  deleteModalForm
+);
+deleteFormValidator.enableValidation();
 
 //user info
 const userInfo = new UserInfo({
