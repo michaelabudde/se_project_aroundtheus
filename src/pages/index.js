@@ -81,7 +81,7 @@ function handleLikeClick(card) {
 }
 const deleteCardModal = new ModalConfirmation(
   selectors.deleteModal,
-  handleDeleteClick
+  deleteCard
 );
 
 function handleDeleteClick(card) {
