@@ -18,7 +18,7 @@ export default class ModalConfirmation extends Modal {
 
   close() {
     this._modalForm.removeEventListener("submit", this._handleSubmit);
-    super.open();
+    super.close();
   }
   setSubmitAction(action) {
     this._handleSubmit = action;
