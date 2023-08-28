@@ -47,7 +47,7 @@ function createCard(cardData) {
     link: cardData.link,
     isLiked: cardData.isLiked,
     cardId: cardData._id,
-    userId: userId,
+    userId,
     handleCardClick,
     handleDeleteClick,
     handleLikeClick,
@@ -178,8 +178,21 @@ avaEditButton.addEventListener("click", () => {
 avatarModal.setEventListeners();
 
 function handleEditProfileSubmit(inputValues) {
-  userInfo.setUserInfo(inputValues);
-  profileEditModal.close();
+  /*   userInfo.setUserInfo(inputValues);
+  profileEditModal.close(); */
+  profileEditModal.renderLoading(true);
+  api
+    .updateProfileInfo(inputValues)
+    .then(() => {
+      userInfo.setUserInfo(inputValues);
+      profileEditModal.close();
+    })
+    .catch((err) => {
+      console.log(err);
+    })
+    .finally(() => {
+      profileEditModal.renderLoading(false, "Save");
+    });
 }
 
 function handleProfileEditClick() {

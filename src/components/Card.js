@@ -14,7 +14,6 @@ export default class Card {
     this._link = link;
     this.isLiked = isLiked;
     this.cardId = cardId;
-    /*     this._likes = likes; */
     this._userId = userId;
     this._cardSelector = cardSelector;
     this._handleCardClick = handleCardClick;
@@ -34,7 +33,7 @@ export default class Card {
     });
   }
 
-  _handleDeleteCard() {
+  handleDeleteCard() {
     this._cardElement.remove();
   }
 
