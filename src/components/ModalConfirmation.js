@@ -32,11 +32,6 @@ export default class ModalConfirmation extends Modal {
     }
   }
 
-  /*   _handleSubmit = (evt) => {
-    evt.preventDefault();
-    this._handleConfirm();
-  }; */
-
   setEventListeners() {
     super.setEventListeners();
     this._modalForm.addEventListener("submit", this._handleSubmit);

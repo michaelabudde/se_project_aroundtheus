@@ -28,19 +28,6 @@ import {
 } from "../utils/constants.js";
 import "../pages/index.css";
 
-//Cards
-/* const section = new Section(
-  {
-    items: initialCards,
-    renderer: (cardData) => {
-      const card = createCard(cardData);
-      section.addItem(card);
-    },
-  },
-  cardList
-);
-section.renderItems(); */
-
 function createCard(cardData) {
   const card = new Card({
     name: cardData.name,
@@ -80,10 +67,7 @@ function handleLikeClick(card) {
       });
   }
 }
-const deleteCardModal = new ModalConfirmation(
-  selectors.deleteModal
-  /*   handleDeleteClick */
-);
+const deleteCardModal = new ModalConfirmation(selectors.deleteModal);
 
 function handleDeleteClick(card) {
   deleteCardModal.setSubmitAction(() => {
@@ -104,10 +88,7 @@ function handleDeleteClick(card) {
   });
   deleteCardModal.open();
 }
-/* deleteCardModal.setEventListeners(); */
-/* deleteModalButton.addEventListener("click", (evt) => {
-  evt.preventDefault();
-}); */
+
 //form validation
 const editProfileFormValidator = new FormValidator(
   validationSettings,
@@ -178,8 +159,6 @@ avaEditButton.addEventListener("click", () => {
 avatarModal.setEventListeners();
 
 function handleEditProfileSubmit(inputValues) {
-  /*   userInfo.setUserInfo(inputValues);
-  profileEditModal.close(); */
   profileEditModal.renderLoading(true);
   api
     .updateProfileInfo(inputValues)
