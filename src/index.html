@@ -8,6 +8,7 @@
     <meta name="author" content="Michaela Budde" />
     <meta name="keywords" content="Around the US, Images, Travel" />
     <title>Around The U.S.</title>
+    <link rel="icon" href="favicon.ico" />
   </head>
   <body class="page">
     <div class="page__content">
@@ -18,13 +19,26 @@
           class="header__image"
         />
       </header>
-      <main class="content page__section">
-        <section class="profile">
+      <main class="content">
+        <section class="profile page__section">
           <img
             src="<%=require('./images/jacques-cousteau.png')%>"
             alt="Avatar"
             class="profile__image"
           />
+          <div class="profile__image-edit-container">
+            <button
+              class="profile__image-hover-button"
+              type="button"
+              id="profile-ava__image-hover-button"
+            >
+              <img
+                src="<%=require('./images/edit-icon.svg')%>"
+                class="profile__image-hover-image"
+                alt="Edit button"
+              />
+            </button>
+          </div>
           <div class="profile__container">
             <div class="profile__info">
               <h1 class="profile__title">Jacques Cousteau</h1>
@@ -56,7 +70,7 @@
             ><input
               type="text"
               id="profile-title-input"
-              name="title"
+              name="name"
               class="modal__container-form-input"
               placeholder="Name"
               maxlength="40"
@@ -69,7 +83,7 @@
             <input
               type="text"
               id="profile-description-input"
-              name="description"
+              name="about"
               class="modal__container-form-input"
               placeholder="Description"
               maxlength="200"
@@ -97,11 +111,11 @@
             <input
               type="text"
               id="card-modal-input-title"
-              name="title"
+              name="name"
               class="modal__container-form-input"
               placeholder="Title"
               maxlength="30"
-              minlength="1"
+              minlength="2"
               required
             />
             <span class="modal__error" id="card-modal-input-title-error"></span>
@@ -136,7 +150,46 @@
         <p class="modal__container-caption"></p>
       </div>
     </div>
-
+    <!--Delete Modal-->
+    <div class="modal" id="modal__delete">
+      <div class="modal__container">
+        <form
+          class="modal__container-form modal__delete-form"
+          id="modal__delete-form"
+        >
+          <h2 class="modal__delete-title">Are you sure?</h2>
+          <button
+            type="submit"
+            class="modal__container-form-button"
+            id="modal__container-delete-form-button"
+          >
+            Yes
+          </button>
+          <button class="modal__close" type="button"></button>
+        </form>
+      </div>
+    </div>
+    <!--Change Avatar-->
+    <div class="modal" id="change-ava-img">
+      <div class="modal__container">
+        <form class="modal__container-form" id="change-ava-form" novalidate>
+          <h2 class="modal__heading">Change Profile Picture</h2>
+          <input
+            id="change-ava-form__link"
+            type="url"
+            class="modal__container-form-input"
+            name="avatar"
+            placeholder="Image link"
+            required
+          />
+          <span class="modal__error" id="change-ava-form__link-error"></span>
+          <button type="submit" class="modal__container-form-button">
+            Save
+          </button>
+          <button class="modal__close" type="button"></button>
+        </form>
+      </div>
+    </div>
     <!--card template-->
     <template id="card-template">
       <li class="card">
